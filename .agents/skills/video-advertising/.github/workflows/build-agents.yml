@@ -1,0 +1,35 @@
+
+name: Build AGENTS.md from Skills
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".agents/skills/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build AGENTS.md from Skills
+        uses: dave1010/skills-to-agents@v2
+        with:
+          skills-dir: .agents/skills
+          agents-path: AGENTS.md
+
+      - name: Commit AGENTS.md
+        run: |
+          git add AGENTS.md
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update AGENTS.md"
+            git push
+          fi
