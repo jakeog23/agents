@@ -31,5 +31,5 @@ Create premium, professional video advertisements for Element Digital.
 - Cluttered graphics
 
 ## Goal
-Create engaging advertisements promoting Element Digital's AI receptionist, automated booking, and CRM services.
+Create engaging advertisements promoting Element Digital's AI receptionist, automated booking, and CRM services. Use only brand assets supplied or verified by the user.
 
